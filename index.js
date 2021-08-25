@@ -21,9 +21,10 @@ for (const file of eventFiles) {
 	}
 }
 
-client.once('ready', () => {
-	console.log('Ready!');
-});
+// Moved to events folder
+// client.once('ready', () => {
+// 	console.log('Ready!');
+// });
 
 client.on('interactionCreate', async interaction => {
 	if (!interaction.isCommand()) return;
