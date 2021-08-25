@@ -22,11 +22,6 @@ for (const file of eventFiles) {
 	}
 }
 
-// Moved to events folder
-// client.once('ready', () => {
-// 	console.log('Ready!');
-// });
-
 client.on('interactionCreate', async interaction => {
 	if (!interaction.isCommand()) return;
 
@@ -42,7 +37,7 @@ client.on('interactionCreate', async interaction => {
 			.setTitle(`${client.user.username} • Fehler`)
 			.setTimestamp(interaction.createdAt)
 			.setFooter(`${client.user.username}`, client.user.displayAvatarURL())
-			.setDescription(`Es ist ein Fehler aufgetreten. Bitte wende dich an <@398101340322136075>!`)
+			.setDescription(`Es ist ein Fehler aufgetreten. Bitte wende dich an <@398101340322136075>!\n\n Fehler:\n \`\`\`${error}\`\`\``)
 			.setColor("#4680FC");
 		return interaction.reply({ephemeral: true, embeds: [reply]});
 	}
