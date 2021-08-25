@@ -2,9 +2,9 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('prune')
-		.setDescription('Prune up to 99 messages.')
-		.addIntegerOption(option => option.setName('amount').setDescription('Number of messages to prune')),
+		.setName('clear')
+		.setDescription('Clear up to 99 messages.')
+		.addIntegerOption(option => option.setName('amount').setDescription('Number of messages to clear')),
 	async execute(interaction) {
 		const amount = interaction.options.getInteger('amount');
 
@@ -13,9 +13,9 @@ module.exports = {
 		}
 		await interaction.channel.bulkDelete(amount, true).catch(error => {
 			console.error(error);
-			interaction.reply({ content: 'There was an error trying to prune messages in this channel!', ephemeral: true });
+			interaction.reply({ content: 'There was an error trying to clear messages in this channel!', ephemeral: true });
 		});
 
-		return interaction.reply({ content: `Successfully pruned \`${amount}\` messages.`, ephemeral: true });
+		return interaction.reply({ content: `Successfully cleared \`${amount}\` messages.`, ephemeral: true });
 	},
 };
