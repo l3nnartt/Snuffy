@@ -1,9 +1,10 @@
 const fs = require('fs');
-const { Client, Collection, Intents } = require('discord.js');
+const { Client, Collection, Intents, MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
 const { token } = require('./config.json');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 client.commands = new Collection();
+
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 
@@ -34,10 +35,16 @@ client.on('interactionCreate', async interaction => {
 	if (!command) return;
 
 	try {
-		await command.execute(interaction);
+		await command.execute(interaction, client);
 	} catch (error) {
 		console.error(error);
-		return interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+		const reply = new MessageEmbed()
+			.setTitle(`${client.user.username} • Fehler`)
+			.setTimestamp(interaction.createdAt)
+			.setFooter(`${client.user.username}`, client.user.displayAvatarURL())
+			.setDescription(`Es ist ein Fehler aufgetreten. Bitte wende dich an <@398101340322136075>!`)
+			.setColor("#4680FC");
+		return interaction.reply({ephemeral: true, embeds: [reply]});
 	}
 });
 
