@@ -17,11 +17,11 @@ module.exports = {
 					value: `${user.tag}`,
 				},
 				{
-					name: 'Joined Server',
+					name: 'Joined server',
 					value: `${new Date(member.joinedTimestamp).toLocaleDateString()}`,
 				},
 				{
-					name: 'Account Created',
+					name: 'Account created',
 					value: `${new Date(user.createdTimestamp).toLocaleDateString()}`,
 				}
 			)

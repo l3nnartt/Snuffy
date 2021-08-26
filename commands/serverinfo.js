@@ -10,8 +10,9 @@ module.exports = {
 			.setTitle(`${client.user.username} • Serverinfo`)
 			.addFields(
 				{ name: 'Servername:', value: `${interaction.guild.name}` },
-				{ name: 'Aktuelle Mitglieder', value: `${interaction.guild.memberCount}` },
-				{ name: 'Server Erstellt:', value: `${interaction.guild.createdAt.toDateString()}` }
+				{ name: 'Current members:', value: `${interaction.guild.memberCount}` },
+				{ name: 'Members alltime', value: `COMING SOON` },
+				{ name: 'Server created:', value: `${interaction.guild.createdAt}` }
 			)
 			.setTimestamp(interaction.createdAt)
 			.setFooter(`${client.user.username}`, client.user.displayAvatarURL())
