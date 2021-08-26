@@ -13,16 +13,16 @@ module.exports = {
 			.setAuthor(`User info for ${user.username}`, user.displayAvatarURL())
 			.addFields(
 				{
-					name: 'User tag',
-					value: `${user.tag}`,
+					name: 'User tag - User ID',
+					value: `${user.tag} - ${user.id}`,
 				},
 				{
 					name: 'Joined server',
-					value: `${new Date(member.joinedTimestamp).toLocaleDateString()}`,
+					value: `${new Date(member.joinedTimestamp).toLocaleDateString()} - ${new Date(member.joinedTimestamp).toLocaleTimeString()}`,
 				},
 				{
 					name: 'Account created',
-					value: `${new Date(user.createdTimestamp).toLocaleDateString()}`,
+					value: `${new Date(user.createdTimestamp).toLocaleDateString()} - ${new Date(user.createdTimestamp).toLocaleTimeString()}`,
 				}
 			)
 		if (user) return interaction.reply({embeds: [embed]});
