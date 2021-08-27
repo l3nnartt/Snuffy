@@ -2,10 +2,9 @@ const { MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'guildMemberAdd',
-	execute(client) {
-        console.log("join")
+	execute(client, member) {
         const embed = new MessageEmbed()
-            .setDescription(` **${member.user.tag}** joined the Server`)
+            .setDescription(` **${member}** joined the Server`)
             .setColor('#c72810')
             .setTimestamp()
             .setFooter(client.user.username, member.user.displayAvatarURL());

@@ -2,10 +2,9 @@ const { MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'guildMemberRemove',
-	execute(client) {
-        console.log("leave")
+	execute(client, member) {
         const embed = new MessageEmbed()
-            .setDescription(` **${member.user.tag}** disappeared`)
+            .setDescription(` **${member}** leaved the Server`)
             .setColor('#c72810')
             .setTimestamp()
             .setFooter(client.user.username, member.user.displayAvatarURL());
