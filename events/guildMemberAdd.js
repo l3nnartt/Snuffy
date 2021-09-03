@@ -2,12 +2,11 @@ const { MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'guildMemberAdd',
-	execute(client, member) {
+	execute(member, client) {
         const embed = new MessageEmbed()
             .setDescription(` **${member}** joined the Server`)
-            .setColor('#c72810')
             .setTimestamp()
-            .setFooter(client.user.username, member.user.displayAvatarURL());
-        client.channels.cache.get('880117895680634900').send(embed);
+			.setFooter(`${client.user.username}`, client.user.displayAvatarURL())
+        client.channels.cache.get('880117895680634900').send({embeds: [embed]});
 	},
 };
