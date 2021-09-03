@@ -5,7 +5,10 @@ const { token } = require('./config.json');
 const myIntents = new Intents();
 myIntents.add(Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS);
 
-const client = new Client({ intents: myIntents });
+const myPartials = [];
+myPartials.push('MESSAGE', 'GUILD_MEMBER', 'CHANNEL');
+
+const client = new Client({ intents: myIntents, partials: myPartials });
 client.commands = new Collection();
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
