@@ -6,7 +6,7 @@ module.exports = {
 		.setName('userinfo')
 		.setDescription('Get information of the selected user, or your own info.')
 		.addUserOption(option => option.setName('target').setDescription('The user\'s info to show')),
-	async execute(interaction) {
+	async execute(interaction, client) {
 		const user = interaction.options.getUser('target') || interaction.user;
 		const member = interaction.guild.members.cache.get(user.id)
 		const embed = new MessageEmbed()
