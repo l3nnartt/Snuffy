@@ -3,11 +3,10 @@ module.exports = {
 	once: true,
 	execute(client) {
 		console.log(`Ready! Logged in as ${client.user.tag}`);
-
 		setInterval(() => {
 			let activity = `${client.guilds.cache.reduce((a, g) => a + g.memberCount,0)} Members`;
 			client.user.setActivity(activity,
-				{type: "PLAYING"}
+				{ type: "PLAYING" }
 			);
   		},15000);
 	},

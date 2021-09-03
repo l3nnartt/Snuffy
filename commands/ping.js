@@ -11,7 +11,6 @@ module.exports = {
 			.setDescription(`Latency is ${Date.now() - interaction.createdTimestamp}ms. API Latency is ${Math.round(client.ws.ping)}ms`)
 			.setTimestamp(interaction.createdAt)
 			.setFooter(`${client.user.username}`, client.user.displayAvatarURL())
-			.setColor("#4680FC");
 		interaction.reply({embeds: [embed1]});
 	},
 };

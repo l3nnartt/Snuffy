@@ -13,18 +13,20 @@ module.exports = {
 			.setAuthor(`User info for ${user.username}`, user.displayAvatarURL())
 			.addFields(
 				{
-					name: 'User tag - User ID',
-					value: `${user.tag} - ${user.id}`,
+					name: `${user.tag}`,
+					value: `<@${user.id}>`,
 				},
 				{
 					name: 'Joined server',
-					value: `${new Date(member.joinedTimestamp).toLocaleDateString()} - ${new Date(member.joinedTimestamp).toLocaleTimeString()}`,
+					value: `${new Date(member.joinedTimestamp).toLocaleDateString()} ${new Date(member.joinedTimestamp).toLocaleTimeString()}`,
 				},
 				{
 					name: 'Account created',
-					value: `${new Date(user.createdTimestamp).toLocaleDateString()} - ${new Date(user.createdTimestamp).toLocaleTimeString()}`,
+					value: `${new Date(user.createdTimestamp).toLocaleDateString()} ${new Date(user.createdTimestamp).toLocaleTimeString()}`,
 				}
 			)
+			.setTimestamp(interaction.createdAt)
+			.setFooter(`${client.user.username}`, client.user.displayAvatarURL())
 		if (user) return interaction.reply({embeds: [embed]});
 		return interaction.reply({embeds: [embed]});
 	},

@@ -12,11 +12,10 @@ module.exports = {
 				{ name: 'Servername:', value: `${interaction.guild.name}` },
 				{ name: 'Current members:', value: `${interaction.guild.memberCount}` },
 				{ name: 'Members alltime', value: `COMING SOON` },
-				{ name: 'Server created:', value: `${interaction.guild.createdAt}` }
+				{ name: 'Server created:', value: `${new Date(interaction.guild.createdTimestamp).toLocaleDateString()} ${new Date(interaction.guild.createdTimestamp).toLocaleTimeString()}` }
 			)
 			.setTimestamp(interaction.createdAt)
 			.setFooter(`${client.user.username}`, client.user.displayAvatarURL())
-			.setColor("#4680FC");
 		return interaction.reply({embeds: [reply]});
 	},
 };
