@@ -2,9 +2,11 @@ const fs = require('fs');
 const { Client, Collection, Intents, MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
 const { token } = require('./config.json');
 
+//Intens
 const myIntents = new Intents();
 myIntents.add(Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS);
 
+//Partials
 const myPartials = [];
 myPartials.push('MESSAGE', 'GUILD_MEMBER', 'CHANNEL');
 
@@ -14,11 +16,13 @@ client.commands = new Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 
+//Command Handler
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 	client.commands.set(command.data.name, command);
 }
 
+//Event Handler
 for (const file of eventFiles) {
 	const event = require(`./events/${file}`);
 	if (event.once) {
