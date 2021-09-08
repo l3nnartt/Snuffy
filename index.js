@@ -2,7 +2,7 @@ const fs = require('fs');
 const { Client, Collection, Intents, MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
 const { token } = require('./config.json');
 
-//Intens
+//Intents
 const myIntents = new Intents();
 myIntents.add(Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS);
 
