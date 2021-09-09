@@ -6,11 +6,11 @@ module.exports = {
 		.setName('ping')
 		.setDescription('Replies with Pong!'),
 	async execute(interaction, client) {
-		const embed1 = new MessageEmbed()
+		const embed = new MessageEmbed()
 			.setTitle(`${client.user.username} • Ping`)
 			.setDescription(`Latency is ${Date.now() - interaction.createdTimestamp}ms. API Latency is ${Math.round(client.ws.ping)}ms`)
 			.setTimestamp(interaction.createdAt)
 			.setFooter(`${client.user.username}`, client.user.displayAvatarURL())
-		interaction.reply({embeds: [embed1]});
+		interaction.reply({embeds: [embed]});
 	},
 };
