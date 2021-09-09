@@ -27,7 +27,11 @@ module.exports = {
 						value: `ID: \`${data.id}\``,
 					},
 					{
-						name: 'Joined server',
+						name: 'First server join',
+						value: `${data.firstjoin}`,
+					},
+					{
+						name: 'Latest server join',
 						value: `${new Date(member.joinedTimestamp).toLocaleDateString()} ${new Date(member.joinedTimestamp).toLocaleTimeString()}`,
 					},
 					{
