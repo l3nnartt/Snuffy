@@ -18,7 +18,6 @@ module.exports = {
 
 			//Checks if the Bot is on a Server
 			var members = client.guilds.cache.reduce((a, g) => a + g.memberCount,0);
-			console.log(parseInt(members))
 			if (parseInt(members) == 0) {
 				var options = {
 					'method': 'POST',
