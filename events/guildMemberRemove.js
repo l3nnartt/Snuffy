@@ -4,7 +4,7 @@ module.exports = {
 	name: 'guildMemberRemove',
 	execute(member, client) {
         const embed = new MessageEmbed()
-            .setDescription(` **${member}** leaved the Server`)
+            .setDescription(` **${member}** left the Server`)
             .setColor('#8A8A8A')
             .setTimestamp()
 			.setFooter(`${client.user.username}`, client.user.displayAvatarURL())
